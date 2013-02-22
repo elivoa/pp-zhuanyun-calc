@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我是大贪心</title>
+<style>
+html,body,dl,dd,dt{margin:0;padding:0;font-size:14px;}
+.header{background:#6C9;position:fixed;top:0;left:0;width:100%;border-top:1px solid #0C6;}
+.header dt,.header dd{float:left;line-height:18px;}
+.header dt{margin-left:20px;padding-top:3px;}
+.header dd{margin-right:40px;}
+.main{margin:60px;}
+.main th,.main td{text-align:left;padding:5px 10px;}
+.main th{}
+.btn-add{margin:10px;}
+
+.total{position:fixed;left:100%;margin-left:-220px;bottom:10px;width:100%;height:60px;}
+.total input{font-size:28px;padding:10px 20px;background:#F60}
+
+/* add by gb */
+.resultTable{margin:12px;}
+.resultTable th td{text-align:center;}
+.resultTable tr td{text-align:center;border:solid 1px #ddd;}
+.resultTable tr td.lowvalue{background-color: green;color:white}
+</style>
+
+<script type="text/javascript" src="./jquery.js"></script>
+<script type="text/javascript" src="./tanxin.js"></script>
+
+</head>
+
+<body>
+<div class="header">
+	<dl>
+		<dt>
+		购置税</dt>
+		<dd><input type="text" value="9" size="2" class="tax" />%</dd>
+		<dt>
+		免税州中转费（￥）</dt>
+		<dd><input type="text" value="4.5" size="4" class="transferfee"/>/磅</dd>
+		<dt>
+		汇率</dt>
+		<dd><input type="text" value="6.2" size="4" class="exchangerate"/></dd>
+	</dl>
+</div>
+<div class="main">
+	<table id="vtable">
+		<tr>
+			<th>商品名称</th>
+			<th>单价（$）</th>
+			<th>数量</th>
+			<th>单件重量（磅）</th>
+		</tr>
+		<tr>
+			<td><input type="text" size="20"
+			  class="itemname" value="HHKB"/></td>
+			<td><input type="text" size="6"
+			  class="itemunit" value="100"/></td>
+			<td><input type="text" size="4" value="1" class="itemquantity"/></td>
+			<td><input type="text" size="8"
+			  class="itemweight" value="1"/></td>
+		</tr>
+	</table>
+	<div class="btn-add"><input type="button" value="添加商品" onclick="tableAddItem()" /></div>
+</div>
+<div class="total">
+	<input type="button" value="我要最省钱" onclick="finalOutput2pageHTML()"/>
+</div>
+<hr />
+<h4>Result:</h4>
+<div class="resultZone"></div>
+</body>
+</html>
